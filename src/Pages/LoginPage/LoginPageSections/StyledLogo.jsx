@@ -11,4 +11,7 @@ font-style: normal;
 font-weight: 600;
 line-height: 86.836%; /* 8.684px */
 letter-spacing: 0.5px;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 140px;
 `
