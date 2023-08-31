@@ -21,7 +21,7 @@ export const TitleSection = () => {
     <StyledHeader>My profile</StyledHeader>
     </StyledHeaderContainer>
     <StyledHeaderContainer2>
-    <StyledHeader2>Update personal details</StyledHeader2>
+    <StyledHeader2>Personal details</StyledHeader2>
     </StyledHeaderContainer2>
     </>
   )
