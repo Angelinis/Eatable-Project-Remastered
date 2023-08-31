@@ -9,7 +9,7 @@ const StyledParagraph = styled.p`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin-bottom: 10px;
-  margin-top: 10px;
 `
+
+
 export default StyledParagraph;

@@ -1,3 +1,4 @@
 export const typography = {
-  title: "Source Sans Pro"
+  title: "Source Sans Pro",
+  logo: "SF Pro Rounded"
 }

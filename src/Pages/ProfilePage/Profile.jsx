@@ -17,6 +17,12 @@ margin-left: 14px;
 margin-right: 14px;
 border-bottom: 2px solid rgba(0, 0, 0, 0.5); 
 padding-bottom: 5px; 
+margin-bottom: 10px;
+margin-top: 10px;
+`
+
+const StyledButtonMargin= styled(StyledButton)`
+margin-left: 42px;
 `
 
 const StyledHeaderMargin = styled(StyledHeader2)`
@@ -26,11 +32,18 @@ padding-top: 18px;
 
 const StyledDiv = styled.div`
 width: 315px;
-height: 197px;
 border-radius: 20px;
 background: ${colors.white};
 box-shadow: 0px 10px 40px 0px rgba(0, 0, 0, 0.03);
+margin-bottom: 45px;
+margin-left: 42px;
+padding-bottom: 46px;
 `
+
+const StyledDiv2 = styled(StyledDiv)`
+padding-bottom: 18px;
+`
+
 
 export const Profile = () => {
   const [profile, setProfile] = useState("");
@@ -54,8 +67,12 @@ export const Profile = () => {
           )
     : "Loading..."
     }
+
+    <StyledDiv2>
+    <StyledHeaderMargin>History </StyledHeaderMargin>    
+    </StyledDiv2>
        
-    <StyledButton>Logout</StyledButton>
+    <StyledButtonMargin>Logout</StyledButtonMargin>
     </>
   )
 }
