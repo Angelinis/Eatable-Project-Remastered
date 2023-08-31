@@ -2,6 +2,7 @@ import styled from "@emotion/styled"
 import StyledHeader2 from "../GeneralComponents/StyledHeader2"
 import { Logo } from "./LoginPageSections/Logo"
 import { colors } from "../../Styles/colors"
+import LoginForm from "./LoginPageSections/LoginForm"
 
 
 const StyledDiv = styled.div`
@@ -19,6 +20,7 @@ export const Login = () => {
      <Logo></Logo>
      <StyledHeader2>Login</StyledHeader2>
      </StyledDiv>
+     <LoginForm></LoginForm>
     </>
   )
 }

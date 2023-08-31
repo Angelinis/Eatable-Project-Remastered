@@ -1,0 +1,81 @@
+import React from 'react';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import StyledButton from '../../GeneralComponents/StyledButton';
+import styled from '@emotion/styled';
+import { colors } from '../../../Styles/colors';
+import { typography } from '../../../Styles/typography';
+import { loginProfile } from '../../../Javascript/sessionservice';
+
+const StyledLabel = styled.label`
+color: ${colors.gray};
+font-family: ${typography.form};
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+`
+
+const StyledDiv = styled.div`
+display: flex;
+flex-direction: column;
+gap: 10px;
+margin-bottom: 20px;
+`
+
+const StyledButtonForm = styled(StyledButton)`
+margin-top: 100px;
+`
+
+const StyledFormContainer = styled.div`
+margin-left: 50px;
+margin-right: 50px;
+margin-top: 48px;
+`
+
+
+const LoginForm = () => (
+  <StyledFormContainer>
+    <Formik
+      initialValues={{ email: '', password: '' }}
+      validate={values => {
+        const errors = {};
+        if (!values.email) {
+          errors.email = 'Required';
+        } else if (
+          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+        ) {
+          errors.email = 'Invalid email address';
+        }
+        return errors;
+      }}
+      onSubmit={(values, { setSubmitting }) => {
+        setTimeout(() => {
+          const body = JSON.stringify(values, null, 2);
+          //loginProfile(login, body).then().catch()
+          alert(JSON.stringify(values, null, 2));
+          setSubmitting(false);
+        }, 400);
+      }}
+    >
+      {({ isSubmitting }) => (
+        <Form>
+          <StyledDiv>
+          <StyledLabel htmlFor="email">Email</StyledLabel>
+          <Field type="email" name="email" />
+          <ErrorMessage name="email" component="div" />
+          </StyledDiv>
+          <StyledDiv>
+          <StyledLabel htmlFor="password">Password</StyledLabel>
+          <Field type="password" name="password" />
+          <ErrorMessage name="password" component="div" />
+          </StyledDiv>
+          <StyledButtonForm type="submit" disabled={isSubmitting}>
+            Login
+          </StyledButtonForm>
+        </Form>
+      )}
+    </Formik>
+  </StyledFormContainer>
+);
+
+export default LoginForm;

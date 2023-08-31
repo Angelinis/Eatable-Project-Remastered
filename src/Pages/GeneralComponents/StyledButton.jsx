@@ -18,6 +18,8 @@ font-size: 1.125rem;
 font-style: normal;
 font-weight: 600;
 line-height: normal;
+margin-left: auto;
+margin-right: auto;
 `
 
 export default StyledButton;

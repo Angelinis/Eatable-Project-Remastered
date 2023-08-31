@@ -4,7 +4,7 @@ import { getProfile } from "../../Javascript/sessionservice";
 import styled from "@emotion/styled";
 import { colors } from "../../Styles/colors";
 
-import StyledButton from "../GeneralComponents/Button";
+import StyledButton from "../GeneralComponents/StyledButton";
 import StyledParagraph from "../GeneralComponents/StyledParagraph";
 import StyledHeader2 from "../GeneralComponents/StyledHeader2";
 import { TitleSection } from "./ProfilePageSections/TitleSection";
