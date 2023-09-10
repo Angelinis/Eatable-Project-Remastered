@@ -1,4 +1,5 @@
 import fetchService from "./fetchservice";
+import { TOKEN_KEY as tokenKey } from "../../config";
 
 export function getProfile(){
   return fetchService("/profile", {method: "GET"}).then((u)=> u).catch((e)=> e)
@@ -9,5 +10,9 @@ export function logoutProfile(){
 }
 
 export function loginProfile(body){
-  return fetchService("/login", {method: "POST", body: body}).then((u)=> u).catch((e)=> e)
+  return fetchService("/login", {method: "POST", body: body}).then((u)=> {
+    const { token, ...user } = u;
+    sessionStorage.setItem(tokenKey, token);
+    return user;
+  }).catch((e)=> console.log(e))
 }

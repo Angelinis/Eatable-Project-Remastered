@@ -15,6 +15,17 @@ font-weight: 600;
 line-height: normal;
 `
 
+const StyledInputContainer = styled.input`
+  border: none;
+  border-bottom: 1px solid ${colors.black};
+  witdth: 315px;
+  background-color: transparent;
+  outline: none;
+  ::placeholder {
+    color: ${colors.black};
+  }
+`;
+
 const StyledDiv = styled.div`
 display: flex;
 flex-direction: column;
@@ -24,6 +35,7 @@ margin-bottom: 20px;
 
 const StyledButtonForm = styled(StyledButton)`
 margin-top: 100px;
+margin-bottom:50px
 `
 
 const StyledFormContainer = styled.div`
@@ -33,8 +45,10 @@ margin-top: 48px;
 `
 
 
-const LoginForm = () => (
-  <StyledFormContainer>
+const LoginForm = ({handleSession})=> {
+
+  return (
+    <StyledFormContainer>
     <Formik
       initialValues={{ email: '', password: '' }}
       validate={values => {
@@ -46,28 +60,29 @@ const LoginForm = () => (
         ) {
           errors.email = 'Invalid email address';
         }
+        if (!values.password) {
+          errors.password = 'Required';
+        }
         return errors;
       }}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          const body = JSON.stringify(values, null, 2);
-          //loginProfile(login, body).then().catch()
-          alert(JSON.stringify(values, null, 2));
+      onSubmit={(values, { setSubmitting, resetForm }) => {
+          const userInfo = loginProfile(values);
+          handleSession(userInfo);
           setSubmitting(false);
-        }, 400);
+          resetForm();
       }}
     >
       {({ isSubmitting }) => (
         <Form>
           <StyledDiv>
-          <StyledLabel htmlFor="email">Email</StyledLabel>
-          <Field type="email" name="email" />
-          <ErrorMessage name="email" component="div" />
+            <StyledLabel htmlFor="email">Email</StyledLabel>
+            <Field type="email" name="email" as={StyledInputContainer} placeholder="Enter your email"/>
+            <ErrorMessage name="email" component="div" />
           </StyledDiv>
           <StyledDiv>
-          <StyledLabel htmlFor="password">Password</StyledLabel>
-          <Field type="password" name="password" />
-          <ErrorMessage name="password" component="div" />
+            <StyledLabel htmlFor="password">Password</StyledLabel>
+            <Field type="password" name="password" as={StyledInputContainer} placeholder="*******"/>
+            <ErrorMessage name="password" component="div" />
           </StyledDiv>
           <StyledButtonForm type="submit" disabled={isSubmitting}>
             Login
@@ -76,6 +91,7 @@ const LoginForm = () => (
       )}
     </Formik>
   </StyledFormContainer>
-);
+  )
+}
 
 export default LoginForm;

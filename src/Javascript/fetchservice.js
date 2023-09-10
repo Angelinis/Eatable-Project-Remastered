@@ -4,8 +4,7 @@ export default async function fetchService(
   endpoint,
   { method, headers, body } = {}
 ) {
-  // const token = sessionStorage.getItem(tokenKey);
-  const token = "wtEHzfFGozD6PPfUXN277JLx";
+  const token = sessionStorage.getItem(tokenKey);
   const authHeader = 'Bearer ' + token;
 
   if (token) {
