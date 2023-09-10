@@ -6,12 +6,23 @@ const AuthContext = createContext();
 
 function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
+  const _token = sessionStorage.getItem(tokenKey)
 
   useEffect(() => {
-    auth
+    if (_token){
+      auth
       .getProfile()
-      .then((u) => setUser(u))
-      .catch(console.log);
+      .then((u) => {
+        if (u) {
+          setUser(u);
+        } else {
+          setUser(null);
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching user profile:", error);
+      });
+    }
   }, []);
 
   function login(credentials) {

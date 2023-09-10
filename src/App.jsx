@@ -1,19 +1,12 @@
-import { Routes, Route, BrowserRouter } from 'react-router-dom'
-import { HomePage } from './Pages/HomePage/Home'
-import { Profile } from './Pages/ProfilePage/Profile'
-import { Login } from './Pages/LoginPage/Login'
+import UnauthenticatedApp from './UnauthenticatedApp.jsx'
+import AuthenticatedApp from './AuthenticatedApp'
+import { useAuth } from './Javascript/authprovider'
 
 function App() {
-
+  const {user} = useAuth()
   return (
     <>
-    <BrowserRouter>
-    <Routes>
-      <Route path='/home' element={<HomePage/>}></Route>
-      <Route path='/profile' element={<Profile/>}></Route>
-      <Route path='/' element={<Login/>}></Route>
-    </Routes>
-    </BrowserRouter>
+    {user ? <AuthenticatedApp></AuthenticatedApp> : <UnauthenticatedApp></UnauthenticatedApp>}
     </>
   )
 }

@@ -5,8 +5,7 @@ import App from './App.jsx'
 import { Global } from '@emotion/react'
 import { reset, global } from './Styles/global.js'
 
-import { BrowserRouter } from 'react-router-dom'
-import { AuthProvider } from './Javascript/authprovider.jsx'
+import { AuthProvider} from './Javascript/authprovider.jsx'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -14,7 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Global styles={reset}></Global>
     <Global styles={global}></Global>
       <AuthProvider>
-        <App />
+        <App></App>
       </AuthProvider> 
   </React.StrictMode>
 )

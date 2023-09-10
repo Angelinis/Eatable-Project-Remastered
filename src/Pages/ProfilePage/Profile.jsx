@@ -8,6 +8,7 @@ import StyledButton from "../GeneralComponents/StyledButton";
 import StyledParagraph from "../GeneralComponents/StyledParagraph";
 import StyledHeader2 from "../GeneralComponents/StyledHeader2";
 import { TitleSection } from "./ProfilePageSections/TitleSection";
+import { useAuth } from "../../Javascript/authprovider";
 
 
 
@@ -18,6 +19,13 @@ margin-right: 14px;
 border-bottom: 2px solid rgba(0, 0, 0, 0.5); 
 padding-bottom: 5px; 
 margin-bottom: 10px;
+margin-top: 10px;
+`
+
+const StyledParagraphOpacity2 = styled(StyledParagraph)`
+opacity: 0.5;
+margin-left: 14px;
+margin-right: 14px;
 margin-top: 10px;
 `
 
@@ -46,10 +54,10 @@ padding-bottom: 18px;
 
 
 export const Profile = () => {
+  const {logout} = useAuth();
   const [profile, setProfile] = useState("");
   useEffect(() => {
     getProfile().then((data) => setProfile(data)).catch((e) => console.log(e));
-    console.log(profile)
   }, [])
   
 
@@ -60,9 +68,12 @@ export const Profile = () => {
         (
           <StyledDiv>
           <StyledHeaderMargin>{profile.name}</StyledHeaderMargin>    
-          <StyledParagraphOpacity>{profile.email}</StyledParagraphOpacity>    
-          <StyledParagraphOpacity>{profile.phone}</StyledParagraphOpacity>    
-          <StyledParagraphOpacity>{profile.address}</StyledParagraphOpacity> 
+          <StyledParagraphOpacity2>Email</StyledParagraphOpacity2>    
+          <StyledParagraphOpacity>{profile.email ? profile.email : "No information"}</StyledParagraphOpacity>    
+          <StyledParagraphOpacity2>Phone</StyledParagraphOpacity2>                
+          <StyledParagraphOpacity>{profile.phone ? profile.phone : "No information"}</StyledParagraphOpacity>    
+          <StyledParagraphOpacity2>Address</StyledParagraphOpacity2>                
+          <StyledParagraphOpacity>{profile.address ? profile.address : "No information"}</StyledParagraphOpacity> 
           </StyledDiv>
           )
     : "Loading..."
@@ -72,7 +83,7 @@ export const Profile = () => {
     <StyledHeaderMargin>History </StyledHeaderMargin>    
     </StyledDiv2>
        
-    <StyledButtonMargin>Logout</StyledButtonMargin>
+    <StyledButtonMargin onClick={()=> logout()}>Logout</StyledButtonMargin>
     </>
   )
 }
