@@ -1,6 +1,8 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import { HomePage } from './Pages/HomePage/Home'
 import { Profile } from './Pages/ProfilePage/Profile'
+import { HistoryPage } from './Pages/HistoryPage/History'
+import { Cart } from './Pages/CartPage/Cart'
 
 function AuthenticatedApp() {
 
@@ -8,8 +10,10 @@ function AuthenticatedApp() {
     <>
     <BrowserRouter>
     <Routes>
-      <Route path='/home' element={<HomePage/>}></Route>
-      <Route path='/' element={<Profile/>}></Route>
+      <Route path='/' element={<HomePage/>}></Route>
+      <Route path='/profile' element={<Profile/>}></Route>
+      <Route path='/history' element={<HistoryPage/>}></Route>
+      <Route path='/cart' element={<Cart/>}></Route>
     </Routes>
     </BrowserRouter>
     </>

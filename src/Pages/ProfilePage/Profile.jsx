@@ -9,6 +9,7 @@ import StyledParagraph from "../GeneralComponents/StyledParagraph";
 import StyledHeader2 from "../GeneralComponents/StyledHeader2";
 import { TitleSection } from "./ProfilePageSections/TitleSection";
 import { useAuth } from "../../Javascript/authprovider";
+import BottomBar from "../GeneralComponents/BottomBar";
 
 
 
@@ -84,6 +85,7 @@ export const Profile = () => {
     </StyledDiv2>
        
     <StyledButtonMargin onClick={()=> logout()}>Logout</StyledButtonMargin>
+    <BottomBar></BottomBar>
     </>
   )
 }

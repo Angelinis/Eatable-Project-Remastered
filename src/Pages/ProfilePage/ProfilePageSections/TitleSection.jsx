@@ -1,13 +1,8 @@
 import styled from "@emotion/styled"
-import StyledHeader from "../../GeneralComponents/StyledHeader"
 import StyledHeader2 from "../../GeneralComponents/StyledHeader2"
 import StyledParagraph from "../../GeneralComponents/StyledParagraph"
 import { colors } from "../../../Styles/colors"
-
-const StyledHeaderContainer = styled.div`
-  margin-top: 3.125rem;
-  margin-bottom: 2.125rem;
-`
+import { StyledPageHeader } from "../../GeneralComponents/StyledPageHeader"
 
 const StyledHeaderContainer2 = styled.div`
   display: flex; 
@@ -26,9 +21,7 @@ export const TitleSection = () => {
 
   return (
     <>
-    <StyledHeaderContainer>
-    <StyledHeader>My profile</StyledHeader>
-    </StyledHeaderContainer>
+    <StyledPageHeader>My Profile</StyledPageHeader>
     <StyledHeaderContainer2>
     <StyledHeader2>Personal details</StyledHeader2>
     <StyledParagraphButton>change</StyledParagraphButton>
