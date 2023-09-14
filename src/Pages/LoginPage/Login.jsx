@@ -23,16 +23,10 @@ margin-left: 50px;
 export const Login = () => {
   const [session, setSession] = useState("");
 
-  useEffect(() => {
-    return () => {
-      console.log(session);
-    }
-  }, [session])
-
-
-  function handleSession(value){
+  function handleSession(value) {
     setSession(value);
-  };
+    window.location.reload();
+    }
 
   return (
     <>
