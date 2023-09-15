@@ -12,3 +12,4 @@ const StyledHeader2 = styled.h2`
 `
 
 export default StyledHeader2;
+
