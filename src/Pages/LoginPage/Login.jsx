@@ -25,17 +25,21 @@ export const Login = () => {
 
   function handleSession(value) {
     setSession(value);
-    window.location.reload();
-    }
+  }
 
   return (
     <>
+    
+    {session ? "...Loading" :  (     
+    <>
     <StyledDiv>
-    {/* {session ? "Successfull" :  "Not session storaged"} */}
-     <Logo></Logo>
-     <StyledHeader>Login</StyledHeader>
+      <Logo></Logo>
+      <StyledHeader>Login</StyledHeader>
     </StyledDiv>
      <LoginForm handleSession={handleSession}></LoginForm>
+     </>
+     )}
+
     </>
   )
 }

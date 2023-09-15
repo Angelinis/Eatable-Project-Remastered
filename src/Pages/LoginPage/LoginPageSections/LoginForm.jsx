@@ -65,10 +65,9 @@ const LoginForm = ({handleSession})=> {
         }
         return errors;
       }}
-      onSubmit={(values, { setSubmitting, resetForm }) => {
+      onSubmit={(values, { setSubmitting }) => {
           loginProfile(values).then((u) => handleSession(u)).catch((e)=> console.log(e));
           setSubmitting(false);
-          resetForm();
       }}
     >
       {({ isSubmitting }) => (
