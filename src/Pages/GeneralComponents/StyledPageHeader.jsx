@@ -15,12 +15,12 @@ const StyledImage = styled.img`
 margin-right: auto;
 `
 
-export const StyledPageHeader = ({children}) => {
+export const StyledPageHeader = ({children, handleBack}) => {
 
   return (
     <>
     <StyledHeaderContainer>
-      <StyledImage src="./back.svg" alt="back-arrow" />
+      <StyledImage onClick={handleBack} src="./back.svg" alt="back-arrow" />
       <StyledHeader>{children}</StyledHeader>
     </StyledHeaderContainer>
     </>

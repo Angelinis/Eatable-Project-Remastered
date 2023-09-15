@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getProfile } from "../../Javascript/sessionservice";
+import { useNavigate } from "react-router-dom";
 
 import styled from "@emotion/styled";
 import { colors } from "../../Styles/colors";
@@ -8,8 +9,9 @@ import { typography } from "../../Styles/typography";
 
 import StyledButton from "../GeneralComponents/StyledButton";
 import { TitleSection } from "./ProfilePageSections/TitleSection";
-import { useAuth } from "../../Javascript/authprovider";
 import BottomBar from "../GeneralComponents/BottomBar";
+import { useAuth } from "../../Javascript/authprovider";
+
 
 const StyledLabel= styled.label`
 opacity: 0.5;
@@ -69,6 +71,8 @@ export const Edit = () => {
     address: "",
   });
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     getProfile()
       .then((data) => {
@@ -85,7 +89,11 @@ export const Edit = () => {
 
   const handleSubmit = () => {
     update(formData);
+    setTimeout(() => {
+      navigate("/profile");
+    }, 2000);
   };
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -96,7 +104,7 @@ export const Edit = () => {
   };
   return (
     <>
-    <TitleSection>Update personal details</TitleSection>
+    <TitleSection handleBack={()=> navigate(-1)}>Update personal details</TitleSection>
     {profile ? 
         (
         <>

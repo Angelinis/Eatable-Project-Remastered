@@ -6,6 +6,7 @@ import { StyledPageHeader } from "../GeneralComponents/StyledPageHeader"
 import StyledHeader2 from "../GeneralComponents/StyledHeader2";
 import styled from "@emotion/styled";
 import { colors } from "../../Styles/colors";
+import { useNavigate } from "react-router-dom";
 
 const StyledTitle = styled(StyledHeader2)`
 font-weight: 400;
@@ -58,6 +59,8 @@ function formatDate(inputDate) {
     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
   ];
 
+
+
   const date = new Date(inputDate);
 
   const dayOfWeek = date.toLocaleString('en-US', { weekday: 'short' });
@@ -74,10 +77,11 @@ useEffect(() => {
   getHistory().then((data) => setHistory(data)).catch((e) => console.log(e));
 }, [])
 
+const navigate = useNavigate();
 
 return (
   <>
-  <StyledPageHeader>History</StyledPageHeader>
+  <StyledPageHeader handleBack={()=> navigate(-1)}>History</StyledPageHeader>
    {history ? 
       (
         <div>

@@ -60,7 +60,8 @@ function AuthProvider({ children }) {
       value={{
         user,
         login,
-        logout
+        logout,
+        update
       }}
     >
       {children}

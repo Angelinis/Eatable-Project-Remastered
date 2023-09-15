@@ -17,11 +17,11 @@ const StyledParagraphButton = styled(StyledParagraph)`
 color:${colors.orange}; 
 `
 
-export const TitleSection = ({children, change}) => {
+export const TitleSection = ({children, change, handleBack}) => {
 
   return (
     <>
-    <StyledPageHeader>My Profile</StyledPageHeader>
+    <StyledPageHeader handleBack={handleBack}>My Profile</StyledPageHeader>
     <StyledHeaderContainer2>
     <StyledHeader2>{children}</StyledHeader2>
     <Link to="/edit">

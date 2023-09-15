@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { getProfile } from "../../Javascript/sessionservice";
+import { useNavigate } from "react-router-dom";
+
 
 import styled from "@emotion/styled";
 import { colors } from "../../Styles/colors";
@@ -68,10 +70,12 @@ export const Profile = () => {
     getProfile().then((data) => setProfile(data)).catch((e) => console.log(e));
   }, [])
   
+  const navigate = useNavigate();
+
 
   return (
     <>
-    <TitleSection change={"change"}>Personal details</TitleSection>
+    <TitleSection change={"change"} handleBack={()=> navigate(-1)}>Personal details</TitleSection>
     {profile ? 
         (
           <StyledDiv>
