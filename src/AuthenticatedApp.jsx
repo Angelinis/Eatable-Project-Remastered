@@ -3,6 +3,7 @@ import { HomePage } from './Pages/HomePage/Home'
 import { Profile } from './Pages/ProfilePage/Profile'
 import { HistoryPage } from './Pages/HistoryPage/History'
 import { Cart } from './Pages/CartPage/Cart'
+import { Edit } from './Pages/ProfilePage/Edit'
 
 function AuthenticatedApp() {
 
@@ -12,6 +13,7 @@ function AuthenticatedApp() {
     <Routes>
       <Route path='/' element={<HomePage/>}></Route>
       <Route path='/profile' element={<Profile/>}></Route>
+      <Route path='/edit' element={<Edit/>}></Route>
       <Route path='/history' element={<HistoryPage/>}></Route>
       <Route path='/cart' element={<Cart/>}></Route>
     </Routes>

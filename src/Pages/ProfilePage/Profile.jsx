@@ -10,8 +10,12 @@ import StyledHeader2 from "../GeneralComponents/StyledHeader2";
 import { TitleSection } from "./ProfilePageSections/TitleSection";
 import { useAuth } from "../../Javascript/authprovider";
 import BottomBar from "../GeneralComponents/BottomBar";
+import { Link } from "react-router-dom";
 
-
+const StyledImage = styled.img`
+padding-top: 18px;
+padding-right: 14px;
+`
 
 const StyledParagraphOpacity = styled(StyledParagraph)`
 opacity: 0.5;
@@ -51,6 +55,9 @@ padding-bottom: 46px;
 
 const StyledDiv2 = styled(StyledDiv)`
 padding-bottom: 18px;
+display: flex;
+justify-content: space-between;
+flex-direction: row; 
 `
 
 
@@ -64,7 +71,7 @@ export const Profile = () => {
 
   return (
     <>
-    <TitleSection></TitleSection>
+    <TitleSection change={"change"}>Personal details</TitleSection>
     {profile ? 
         (
           <StyledDiv>
@@ -82,6 +89,9 @@ export const Profile = () => {
 
     <StyledDiv2>
     <StyledHeaderMargin>History </StyledHeaderMargin>    
+    <Link to="/history">
+      <StyledImage src="./arrowright.svg" alt="arrow-right" />
+    </Link>
     </StyledDiv2>
        
     <StyledButtonMargin onClick={()=> logout()}>Logout</StyledButtonMargin>

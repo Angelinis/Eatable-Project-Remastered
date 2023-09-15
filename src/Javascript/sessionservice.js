@@ -9,6 +9,11 @@ export function logoutProfile(){
   return fetchService("/logout", {method: "DELETE"}).then((u)=> u).catch((e)=> e)
 }
 
+export function updateProfile(body){
+  return fetchService("/profile", {method: "PATCH", body: body}).then((u)=> u).catch((e)=> console.log(e))
+}
+
+
 export function loginProfile(body){
   return fetchService("/login", {method: "POST", body: body}).then((u)=> {
     const { token, ...user } = u;

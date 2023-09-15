@@ -3,6 +3,7 @@ import StyledHeader2 from "../../GeneralComponents/StyledHeader2"
 import StyledParagraph from "../../GeneralComponents/StyledParagraph"
 import { colors } from "../../../Styles/colors"
 import { StyledPageHeader } from "../../GeneralComponents/StyledPageHeader"
+import { Link } from "react-router-dom"
 
 const StyledHeaderContainer2 = styled.div`
   display: flex; 
@@ -16,15 +17,16 @@ const StyledParagraphButton = styled(StyledParagraph)`
 color:${colors.orange}; 
 `
 
-
-export const TitleSection = () => {
+export const TitleSection = ({children, change}) => {
 
   return (
     <>
     <StyledPageHeader>My Profile</StyledPageHeader>
     <StyledHeaderContainer2>
-    <StyledHeader2>Personal details</StyledHeader2>
-    <StyledParagraphButton>change</StyledParagraphButton>
+    <StyledHeader2>{children}</StyledHeader2>
+    <Link to="/edit">
+      <StyledParagraphButton>{change}</StyledParagraphButton>
+    </Link>
     </StyledHeaderContainer2>
     </>
   )

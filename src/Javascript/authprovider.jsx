@@ -48,11 +48,12 @@ function AuthProvider({ children }) {
   //     .catch(console.log);
   // }
 
-  // function update(userData) {
-  //   upDateUser(userData)
-  //     .then((u) => setUser(u))
-  //     .catch(console.log)
-  // }
+  function update(data) {
+    auth
+    .updateProfile(data)
+      .then((u) => setUser(u))
+      .catch(console.log)
+  }
 
   return (
     <AuthContext.Provider
