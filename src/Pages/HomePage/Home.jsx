@@ -4,13 +4,16 @@ import { FoodCard } from './HomePageSections/FoodCard'
 import { SearchSection } from './HomePageSections/SearchSection'
 import {getProducts} from '../../Javascript/productservice'
 
+
 export const HomePage = () => {
   const [menu, setMenu] = useState([])
+
   useEffect(() => {
   getProducts().then((data)=> setMenu(data)).catch((error)=>console.log(error))
   console.log(menu)
-  }, [])
   
+  }, [])
+
   return (
     <>
     <SearchSection/> 

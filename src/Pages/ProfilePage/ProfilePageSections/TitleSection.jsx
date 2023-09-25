@@ -17,6 +17,11 @@ const StyledParagraphButton = styled(StyledParagraph)`
 color:${colors.orange}; 
 `
 
+const StyleLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+`
+
 export const TitleSection = ({children, change, handleBack}) => {
 
   return (
@@ -24,9 +29,9 @@ export const TitleSection = ({children, change, handleBack}) => {
     <StyledPageHeader handleBack={handleBack}>My Profile</StyledPageHeader>
     <StyledHeaderContainer2>
     <StyledHeader2>{children}</StyledHeader2>
-    <Link to="/edit">
+    <StyleLink to="/edit">
       <StyledParagraphButton>{change}</StyledParagraphButton>
-    </Link>
+    </StyleLink>
     </StyledHeaderContainer2>
     </>
   )
