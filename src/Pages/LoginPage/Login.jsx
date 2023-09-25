@@ -4,6 +4,7 @@ import { Logo } from "./LoginPageSections/Logo"
 import { colors } from "../../Styles/colors"
 import LoginForm from "./LoginPageSections/LoginForm"
 import { useEffect, useState } from "react"
+import { Loading } from "../Loading"
 
 const StyledDiv = styled.div`
 width: 414px;
@@ -30,7 +31,7 @@ export const Login = () => {
   return (
     <>
     
-    {session ? "...Loading" :  (     
+    {session ? <Loading/> :  (     
     <>
     <StyledDiv>
       <Logo></Logo>
