@@ -9,6 +9,7 @@ import styled from "@emotion/styled";
 
 import { getProduct } from "../../Javascript/productservice";
 import { FoodUniqueSection } from "./ShowPageSections/FoodUniqueSection";
+import { updateCart } from "../../Javascript/userservice";
 
 const StyledButtonCart = styled(StyledButton)`
 margin-top: 100px;
@@ -20,6 +21,11 @@ export const Show = () => {
   const { id } = useParams();
   const [foodData, setFoodData] = useState([])
 
+  const handleAddToCart = () => {
+    console.log('Add to Cart clicked!');
+    updateCart(foodData);
+  };
+
   useEffect(() => {
     getProduct(id).then((data)=> setFoodData(data)).catch((e)=>console.log(e))
   }, [foodData])
@@ -30,7 +36,7 @@ export const Show = () => {
     <StyledPageHeader handleBack={()=> navigate(-1)}>Show</StyledPageHeader>
     {foodData ? (<><FoodUniqueSection name={foodData.name} price={foodData.price} description={foodData.description} picture={foodData.picture_url}>
     </FoodUniqueSection>
-    <StyledButtonCart>Add to Cart</StyledButtonCart></>)
+    <StyledButtonCart onClick={handleAddToCart}>Add to Cart</StyledButtonCart></>)
      :
     "Loading..."
     }
