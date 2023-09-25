@@ -7,6 +7,7 @@ import StyledHeader2 from "../GeneralComponents/StyledHeader2";
 import styled from "@emotion/styled";
 import { colors } from "../../Styles/colors";
 import { useNavigate } from "react-router-dom";
+import NoDataSection from "../GeneralComponents/NoDataSection";
 
 const StyledTitle = styled(StyledHeader2)`
 font-weight: 400;
@@ -82,7 +83,10 @@ const navigate = useNavigate();
 return (
   <>
   <StyledPageHeader handleBack={()=> navigate(-1)}>History</StyledPageHeader>
-   {history ? 
+   {history ? (
+  history.length === 0 ? (
+    <NoDataSection image={"/no_history_vector.svg"}>{"No history yet"}</NoDataSection>
+  ) :
       (
         <div>
           {history.map((order) => 
@@ -113,7 +117,7 @@ return (
               )
             )}
         </div>
-        )
+        ))
   : "Loading..."
 
   }

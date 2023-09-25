@@ -50,8 +50,7 @@ export const SearchSection = () => {
         placeholder="Search..."
         value={searchQuery}
         onChange={handleInputChange}/>
-    <img src="/shopping-cart.svg" alt="cart-icon" />
-    
+    <Link to="/cart"><img src="/shopping-cart.svg" alt="cart-icon" /> </Link> 
     </StyledDiv>
     </>
   )

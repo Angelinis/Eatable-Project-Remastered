@@ -1,3 +1,5 @@
+import styled from "@emotion/styled"
+import { colors } from "../../../Styles/colors"
 
 const FoodTitle = styled.h1`
   font-weight: 600;
