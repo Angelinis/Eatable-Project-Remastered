@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getHistory } from "../../Javascript/productservice";
+import { getHistory } from "../../Javascript/userservice";
 
 import BottomBar from "../GeneralComponents/BottomBar"
 import { StyledPageHeader } from "../GeneralComponents/StyledPageHeader"

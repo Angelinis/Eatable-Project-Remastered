@@ -20,7 +20,7 @@ export const StyledPageHeader = ({children, handleBack}) => {
   return (
     <>
     <StyledHeaderContainer>
-      <StyledImage onClick={handleBack} src="./back.svg" alt="back-arrow" />
+      <StyledImage onClick={handleBack} src="/back.svg" alt="back-arrow" />
       <StyledHeader>{children}</StyledHeader>
     </StyledHeaderContainer>
     </>

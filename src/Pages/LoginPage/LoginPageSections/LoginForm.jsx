@@ -4,7 +4,7 @@ import StyledButton from '../../GeneralComponents/StyledButton';
 import styled from '@emotion/styled';
 import { colors } from '../../../Styles/colors';
 import { typography } from '../../../Styles/typography';
-import { loginProfile } from '../../../Javascript/sessionservice';
+import { useAuth } from '../../../Javascript/authprovider';
 
 const StyledLabel = styled.label`
 color: ${colors.gray};
@@ -44,8 +44,8 @@ margin-right: 50px;
 margin-top: 48px;
 `
 
-
 const LoginForm = ({handleSession})=> {
+  const {login} = useAuth();
 
   return (
     <StyledFormContainer>
@@ -66,7 +66,7 @@ const LoginForm = ({handleSession})=> {
         return errors;
       }}
       onSubmit={(values, { setSubmitting }) => {
-          loginProfile(values).then((u) => handleSession(u)).catch((e)=> console.log(e));
+          login(values);
           setSubmitting(false);
       }}
     >
