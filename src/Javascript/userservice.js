@@ -7,7 +7,7 @@ export function getHistory(){
 }
 
 export function getCart(){
-  const cartItems = sessionStorage.getItem(CART);
+  const cartItems = JSON.parse(sessionStorage.getItem(CART));
 
   if(cartItems){
     return cartItems
@@ -19,8 +19,9 @@ export function getCart(){
 
 export function updateCart(newItem){
   const cartItems = JSON.parse(sessionStorage.getItem(CART)) || [];
-  newItem.quantity = 1;
-  cartItems.push(newItem);
+  const { id, price, picture_url, name } = newItem;
+  const modifiedItem = { id, price, picture_url, name, quantity: 1 };
+  cartItems.push(modifiedItem);
   sessionStorage.setItem(CART, JSON.stringify(cartItems));
 }
 
