@@ -1,6 +1,6 @@
 import { getCart } from "../../Javascript/userservice";
 
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 
@@ -11,6 +11,7 @@ import StyledHeader2 from "../GeneralComponents/StyledHeader2";
 import StyledParagraph from "../GeneralComponents/StyledParagraph";
 import { colors } from "../../Styles/colors";
 import { useAuth } from "../../Javascript/authprovider";
+import { TotalSection } from "./CheckoutSections/TotalSection";
 
 const StyledParagraphButton = styled(StyledParagraph)`
 color:${colors.orange}; 
@@ -26,6 +27,11 @@ const StyledHeaderContainer2 = styled.div`
   margin-bottom: 2.25rem;
   margin-left: 42px;
   margin-right: 61px;
+`
+
+const StyledLink=styled(Link)`
+color: inherit;
+text-decoration: none;
 `
 
 const StyledParagraphOpacity = styled(StyledParagraph)`
@@ -72,12 +78,22 @@ export const Checkout = () => {
     console.log('Clicked!');
   };
 
+  function total(orderList) {
+    let total = 0
+    orderList.map((order) => total += order.price * order.quantity)
+    total = (total/100).toFixed(2);
+    return total
+  }
+
+
   return (
     <> 
     <StyledPageHeader handleBack={()=> navigate(-1)}>Checkout</StyledPageHeader>
     <StyledHeaderContainer2>
       <StyledHeader2>Delivery details</StyledHeader2>
+      <StyledLink to="/edit">
       <StyledParagraphButton>change</StyledParagraphButton>
+      </StyledLink>
     </StyledHeaderContainer2>
 
     <StyledDiv>
@@ -87,7 +103,7 @@ export const Checkout = () => {
           <StyledParagraphOpacity2>Address</StyledParagraphOpacity2>                
           <StyledParagraphOpacity>{user.address ? user.address : "No information"}</StyledParagraphOpacity> 
     </StyledDiv>
-
+    {cartInfo ? <TotalSection>${total(cartInfo)}</TotalSection> : "Loading..."}
     <StyledButtonCart onClick={handleOrder}>Complete Order</StyledButtonCart>
 
     <BottomBar></BottomBar>
