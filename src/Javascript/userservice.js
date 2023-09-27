@@ -25,8 +25,19 @@ export function updateCart(newItem){
   sessionStorage.setItem(CART, JSON.stringify(cartItems));
 }
 
-export function deleteCart(positionToDelete){
-  const cartItems = JSON.parse(sessionStorage.getItem(CART)) || [];
-  array.splice(positionToDelete, 1);
+export function updateQuantity(idToUpdate, newQuantity){
+  let cartItems = JSON.parse(sessionStorage.getItem(CART));
+  const cartItem = cartItems.find(item => item.id === idToUpdate);
+  if (cartItem) {
+    cartItem.quantity = newQuantity;
+  }
+  cartItems = cartItems.map(item => (item.id === idToUpdate ? cartItem : item));
+  sessionStorage.setItem(CART, JSON.stringify(cartItems));
+}
+
+export function deleteCart(idToDelete){
+  let cartItems = JSON.parse(sessionStorage.getItem(CART)) || [];
+  cartItems = cartItems.filter(item => {;
+    return item.id !== idToDelete;}) 
   sessionStorage.setItem(CART, JSON.stringify(cartItems));
 }

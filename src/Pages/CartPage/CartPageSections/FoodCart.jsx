@@ -1,5 +1,7 @@
 import styled from "@emotion/styled"
 import { colors } from "../../../Styles/colors"
+import { OrderBar } from "./OrderBar"
+import { useState } from "react"
 
 const FoodImage = styled.img`
   width: 62px;
@@ -14,6 +16,7 @@ const FoodContainer = styled.div`
   padding-left: 20px;
   padding-right: 20px;
   margin-top: 23px;
+  margin-down: 20px;
   width: 315px;
   height: 102px; 
   border-radius: 20px;
@@ -30,6 +33,15 @@ const TextContainer = styled.div`
   flex-direction: column;
   gap: 8px;
   align-items: center;
+  width: 200px;
+`
+
+const BarContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  width: 200px;
 `
 
 
@@ -41,22 +53,31 @@ const FoodName = styled.h3`
   font-weight: 600;
   font-size: 1rem;
   line-height: normal;
-  text-align: center;
+  margin-right: auto;
+  margin-left: 20px;
   text-transform: capitalize;
 `
 
 const FoodPrice = styled.p`
   font-family: 'Source Sans Pro';
   font-weight: 600;
-  font-size: 1.375rem;
-  line-height: 1.75rem;
-  color: #FA4A0C;
+  font-size: 1.125rem;
+  line-height: normal;
+  color: ${colors.orange};
+  margin-left: 20px;
+  margin-right: auto;
 `
 
-export function FoodCart ({id, image, foodName, foodPrice}) {
+export function FoodCart ({id, image, foodName, foodPrice, quantity, handleErase}) {
 
-  function formattedPrice(price) {
-    return (price/100).toFixed(2);
+  const [updatedQuantity, setUpdatedQuantity] = useState(quantity)
+
+  function formattedPrice(price, quantity) {
+    return (price*quantity/100).toFixed(2);
+  }
+
+  function handleChangeQuantity(newValue){
+    setUpdatedQuantity(newValue);
   }
 
   return  (
@@ -64,7 +85,10 @@ export function FoodCart ({id, image, foodName, foodPrice}) {
       <FoodImage src={image} alt="food-image" />
       <TextContainer>
       <FoodName>{foodName}</FoodName>
-      <FoodPrice>${formattedPrice(foodPrice)}</FoodPrice>
+      <BarContainer>
+      <FoodPrice>${formattedPrice(foodPrice, updatedQuantity)}</FoodPrice>
+      <OrderBar onErase={handleErase} onChangeQuantity={(newValue)=>handleChangeQuantity(newValue)} id={id}>{quantity}</OrderBar>
+      </BarContainer>
       </TextContainer>
     </FoodContainer>
   )
