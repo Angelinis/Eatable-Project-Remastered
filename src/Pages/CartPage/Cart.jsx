@@ -41,18 +41,23 @@ export const Cart = () => {
     <> 
     <StyledPageHeader handleBack={()=> navigate(-1)}>Cart</StyledPageHeader>
     {cartInfo && cartInfo.length !== 0 ? 
-    cartInfo.map((cartItem => (
+    
+    (
+    <>
+    {cartInfo.map((cartItem => (
         <FoodCart key={cartItem.id} 
         handleErase={(idToDelete) => handleEraseItem(idToDelete)}
         quantity={cartItem.quantity} 
         id={cartItem.id} image={cartItem.picture_url} foodName={cartItem.name} foodPrice={cartItem.price}/>
     ))
-    ) 
-    
-    :     <NoDataSection image={"/no_cart_vector.svg"}>{"No items in the cart yet"}</NoDataSection>}
+    )}
     <StyledLink to="/checkout">
-      <StyledButtonCart onClick={handleCheckout}>Checkout</StyledButtonCart>
+    <StyledButtonCart onClick={handleCheckout}>Checkout</StyledButtonCart>
     </StyledLink>
+    </> 
+    )
+    :     <NoDataSection image={"/no_cart_vector.svg"}>{"No items in the cart yet"}</NoDataSection>}
+
     <BottomBar></BottomBar>
     </>
   )

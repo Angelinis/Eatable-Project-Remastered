@@ -74,11 +74,21 @@ function formatDate(inputDate) {
 
 export const HistoryPage = () => {
 const [history, setHistory] = useState("");
+const [orderVisibility, setOrderVisibility] = useState([]); 
 useEffect(() => {
-  getHistory().then((data) => setHistory(data)).catch((e) => console.log(e));
+  getHistory().then((data) => {
+    setHistory(data)
+    setOrderVisibility(new Array(data.length).fill(false))
+  }).catch((e) => console.log(e));
 }, [])
 
 const navigate = useNavigate();
+
+const toggleOrderVisibility = (index) => {
+  const updatedVisibility = [...orderVisibility];
+  updatedVisibility[index] = !updatedVisibility[index];
+  setOrderVisibility(updatedVisibility);
+};
 
 return (
   <>
@@ -89,7 +99,7 @@ return (
   ) :
       (
         <div>
-          {history.map((order) => 
+          {history.map((order, index) => 
               (
                 <StyledDiv key={order.id}>
                   <StyledTitle>{formatDate(order.created_at)}</StyledTitle>
@@ -97,6 +107,14 @@ return (
                     <StyledDescription>{order.items_count} items</StyledDescription>
                     <StyledPrice>${order.total/100}</StyledPrice>
                   </StyledDiv2>
+
+                  {!orderVisibility[index] ? 
+
+                  (<StyledArrow onClick={() => toggleOrderVisibility(index)} src="./arrowdown.svg" alt="arrow-down" />)
+
+                  :
+                  <>
+                  
                   <StyledTitle>Order</StyledTitle>
                   {order.order_details.length === 0 ? 
                   <StyledPrice>No items</StyledPrice>  : 
@@ -108,11 +126,18 @@ return (
                       </StyledDiv2>
                     ))
                   )
-  
                   }
+
                   <StyledTitle2>Delivery</StyledTitle2>
                   <StyledDescription>{order.delivery_address}</StyledDescription>
-                  <StyledArrow src="./arrowup.svg" alt="arrow-up" />
+                  
+                  <StyledArrow onClick={() => toggleOrderVisibility(index)} src="./arrowup.svg" alt="arrow-up" />
+                  
+                  </>
+                  }
+                  
+
+                  
                 </StyledDiv>
               )
             )}
