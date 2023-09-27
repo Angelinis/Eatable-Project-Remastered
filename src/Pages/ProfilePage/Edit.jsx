@@ -12,6 +12,16 @@ import { TitleSection } from "./ProfilePageSections/TitleSection";
 import BottomBar from "../GeneralComponents/BottomBar";
 import { useAuth } from "../../Javascript/authprovider";
 
+const StyledAlert = styled.p`
+color: ${colors.black};
+font-family: ${typography.checkout};
+font-size: 1.4rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+text-align: center;
+margin-bottom: 30px;
+`
 
 const StyledLabel= styled.label`
 opacity: 0.5;
@@ -71,6 +81,7 @@ export const Edit = () => {
     address: "",
   });
 
+  const [dataOK, setDataOK] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -88,10 +99,14 @@ export const Edit = () => {
   }, []);
 
   const handleSubmit = () => {
+    if (formData.name && formData.email && formData.phone && formData.address) {
     update(formData);
     setTimeout(() => {
       navigate("/profile");
     }, 2000);
+    } else {
+      setDataOK(false);
+    }
   };
 
 
@@ -160,7 +175,7 @@ export const Edit = () => {
           )
     : "Loading..."
     }
-      
+    {!dataOK && <StyledAlert>Please fill all information</StyledAlert>}
     <StyledButtonMargin onClick={()=> handleSubmit()}>Update</StyledButtonMargin>
     <BottomBar></BottomBar>
  

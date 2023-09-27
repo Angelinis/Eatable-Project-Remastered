@@ -1,4 +1,6 @@
 import { getCart } from "../../Javascript/userservice";
+import { CART } from "../../../config";
+
 
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -12,6 +14,8 @@ import StyledParagraph from "../GeneralComponents/StyledParagraph";
 import { colors } from "../../Styles/colors";
 import { useAuth } from "../../Javascript/authprovider";
 import { TotalSection } from "./CheckoutSections/TotalSection";
+import { postOrder } from "../../Javascript/productservice";
+import { NoOrder } from "./CheckoutSections/NoOrder";
 
 const StyledParagraphButton = styled(StyledParagraph)`
 color:${colors.orange}; 
@@ -74,8 +78,18 @@ export const Checkout = () => {
     setCartInfo(getCart());
   }, [])
 
+
+
   const handleOrder = () => {
-    console.log('Clicked!');
+    if (!user.address) {return console.log("Couldn't proceed without address")} 
+    if (!cartInfo){return console.log("Couldn't proceed without cart items")}
+    const orderArray = cartInfo.map(({ id, quantity }) => ({ id, quantity }))
+    const order = {
+      "delivery_address": user.address,
+      "items": orderArray
+    }
+    postOrder(order).then(sessionStorage.removeItem(CART)).catch((e)=> console.log(e));
+    navigate("/history");
   };
 
   function total(orderList) {
@@ -103,8 +117,8 @@ export const Checkout = () => {
           <StyledParagraphOpacity2>Address</StyledParagraphOpacity2>                
           <StyledParagraphOpacity>{user.address ? user.address : "No information"}</StyledParagraphOpacity> 
     </StyledDiv>
-    {cartInfo ? <TotalSection>${total(cartInfo)}</TotalSection> : "Loading..."}
-    <StyledButtonCart onClick={handleOrder}>Complete Order</StyledButtonCart>
+    {cartInfo ? (<TotalSection>${total(cartInfo)}</TotalSection>) : (<NoOrder items={cartInfo} address={user.address}/>)}
+    <StyledButtonCart onClick={handleOrder} disabled={!user.address || !cartInfo}>Complete Order</StyledButtonCart>
 
     <BottomBar></BottomBar>
     </>

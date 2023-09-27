@@ -20,6 +20,13 @@ font-weight: 600;
 line-height: normal;
 margin-left: auto;
 margin-right: auto;
+
+
+&:disabled {
+  background: ${colors.gray};
+  color: ${colors.white};
+  cursor: not-allowed;
+}
 `
 
 export default StyledButton;
