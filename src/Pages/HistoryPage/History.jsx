@@ -100,7 +100,9 @@ return (
   ) :
       (
         <div>
-          {history.map((order, index) => 
+          {history
+                  .sort((a, b) => new Date(b.created_at) - new Date(a.created_at)) 
+                  .map((order, index) => 
               (
                 <StyledDiv key={order.id}>
                   <StyledTitle>{formatDate(order.created_at)}</StyledTitle>

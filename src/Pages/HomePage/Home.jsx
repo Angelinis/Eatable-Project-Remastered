@@ -19,9 +19,7 @@ const MenuContainer = styled.div`
 export const HomePage = () => {
   const [menu, setMenu] = useState([])
   const [refresh, setRefresh] = useState(false);
-  const [height, setHeight] = useState(0);
-  const carousel = useRef();
-  const otherHeight = 600;
+
 
   useEffect(() => {
   getProducts().then((data)=> setMenu(data)).catch((error)=>console.log(error))
@@ -34,7 +32,7 @@ export const HomePage = () => {
 
   return (
   <>
-    <SearchSection/> 
+    <SearchSection onRefresh={handleRefresh}/> 
     <MenuContainer> 
       {menu ? menu.map((foodcard => (
          <FoodCard id= {foodcard.id} key={foodcard.id} image= {foodcard.picture_url} foodName={foodcard.name} foodPrice={foodcard.price}></FoodCard>

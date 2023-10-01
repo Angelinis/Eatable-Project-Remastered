@@ -11,7 +11,8 @@ const FoodImage = styled.img`
 `
 
 const FoodContainer = styled.div`
-  margin-top: 58px;
+  margin-top: 68px;
+  margin-bottom: 20px;
   width: 156px;
   height: 212px;
   border-radius: 30px;

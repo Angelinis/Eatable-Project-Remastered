@@ -32,7 +32,7 @@ export const SearchSection = () => {
       clearTimeout(timeoutIdRef.current);
   }
 
-    timeoutIdRef.current = setTimeout(() => {handleSearch(inputValue)}, 3000); 
+    timeoutIdRef.current = setTimeout(() => {handleSearch(inputValue)}, 2000); 
 
     setSearchQuery(inputValue);
   }

@@ -38,13 +38,13 @@ export const Show = () => {
   return (
     <> 
     
-    <StyledPageHeader handleBack={()=> navigate(-1)}>Show</StyledPageHeader>
+    <StyledPageHeader handleBack={()=> navigate(-1)}>{foodData ? foodData.name : Show}</StyledPageHeader>
     {foodData ? (<><FoodUniqueSection name={foodData.name} price={foodData.price} description={foodData.description} picture={foodData.picture_url}>
     </FoodUniqueSection>
     <StyledButtonCart onClick={handleAddToCart} disabled={addToCart}> 
     {addToCart ? 'Added to Cart' : 'Add to Cart'}
     </StyledButtonCart>
-    {addToCart && <StyledLink to={"/cart"}><StyledButton>Go to Cart</StyledButton></StyledLink>}
+    {addToCart && <StyledLink to={"/cart"}><StyledButtonCar>Go to Cart</StyledButtonCar></StyledLink>}
     </>)
      :
     "Loading..."

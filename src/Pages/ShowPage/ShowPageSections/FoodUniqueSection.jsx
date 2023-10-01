@@ -47,7 +47,7 @@ export const FoodUniqueSection = ({name, price, description, picture}) => {
 
   return (
     <>
-    <FoodTitle>{name}</FoodTitle>
+    {/* <FoodTitle>{name}</FoodTitle> */}
     <FoodImage src={picture}></FoodImage>
     <FoodPrice>${formattedPrice(price)}</FoodPrice>
     <FoodDescriptionTitle>Description</FoodDescriptionTitle>
