@@ -13,8 +13,8 @@ const FoodImage = styled.img`
   height: 241px;
   border-radius: 50%;
   box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.2);
-  margin-bottom: 91px;
-  margin-top: 94px;
+  margin-bottom: 50px;
+  margin-top: 50px;
   margin-right: auto;
   margin-left: auto;
 `

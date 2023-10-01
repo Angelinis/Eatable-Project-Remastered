@@ -16,6 +16,7 @@ margin-top: 18px;
 
 const StyledArrow = styled.img`
 margin-left:auto;
+margin-top: 5px;
 `
 
 const StyledTitle2 = styled(StyledHeader2)`
