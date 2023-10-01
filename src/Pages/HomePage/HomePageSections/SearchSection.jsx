@@ -19,7 +19,7 @@ margin-right: auto;
 margin-top: 32px;
 `
 
-export const SearchSection = () => {
+export const SearchSection = ({onRefresh, onFilter, refreshValue}) => {
   
   const [searchQuery, setSearchQuery] = useState('');
   const timeoutIdRef = useRef(null);
@@ -39,6 +39,8 @@ export const SearchSection = () => {
 
   const handleSearch = (query) => {
     console.log('Performing search for:', query);
+    onFilter(query);
+    onRefresh(!refreshValue);
   };
 
   return (
