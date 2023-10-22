@@ -41,7 +41,7 @@ Finally run the server using:
 
 If you want to learn more about `Vite`, see [the guidelines][vite].
 
-[vite]: (https://vitejs.dev/guide/)
+[vite]: https://vitejs.dev/guide/
 
 ## Contributions
 
