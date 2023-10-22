@@ -27,6 +27,7 @@ It uses the next libraries:
 - Icons from react-icons
 - React-router-dom for navigating through the different pages
 - Framer-motion for creating a carrousel of images display
+- Axios for performing HTTP methods requests
 
 ## Getting Started
 
