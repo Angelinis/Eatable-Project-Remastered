@@ -1,8 +1,8 @@
-# Eatable-Project
+# Eatable-Project-Remastered
 
 ## What is this?
 
-“Eatable-Project” is a delivery application. It lets the user search for food items, add items into the cart, complete checkout, sreview order history and edit the user's information.
+“Eatable-Project-Remastered” is a delivery application. It lets the user search for food items, add items into the cart, complete checkout, sreview order history and edit the user's information.
 
 The project is based on React with the concepts of fetching, components, libraries, etc.
 
