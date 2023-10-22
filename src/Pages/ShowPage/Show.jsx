@@ -44,7 +44,7 @@ export const Show = () => {
     <StyledButtonCart onClick={handleAddToCart} disabled={addToCart}> 
     {addToCart ? 'Added to Cart' : 'Add to Cart'}
     </StyledButtonCart>
-    {addToCart && <StyledLink to={"/cart"}><StyledButtonCar>Go to Cart</StyledButtonCar></StyledLink>}
+    {addToCart && <StyledLink to={"/cart"}><StyledButtonCart>Go to Cart</StyledButtonCart></StyledLink>}
     </>)
      :
     "Loading..."
