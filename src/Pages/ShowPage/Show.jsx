@@ -12,7 +12,7 @@ import { FoodUniqueSection } from "./ShowPageSections/FoodUniqueSection";
 import { updateCart } from "../../Javascript/userservice";
 
 const StyledButtonCart = styled(StyledButton)`
-margin-top: 100px;
+margin-top: 30px;
 margin-bottom:50px
 `
 const StyledLink = styled(Link)`

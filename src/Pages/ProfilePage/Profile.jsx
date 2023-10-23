@@ -38,6 +38,7 @@ margin-top: 10px;
 
 const StyledButtonMargin= styled(StyledButton)`
 margin-left: 42px;
+margin-top: 30px;
 `
 
 const StyledHeaderMargin = styled(StyledHeader2)`
@@ -50,9 +51,9 @@ width: 315px;
 border-radius: 20px;
 background: ${colors.white};
 box-shadow: 0px 10px 40px 0px rgba(0, 0, 0, 0.03);
-margin-bottom: 45px;
+margin-bottom: 30px;
 margin-left: 42px;
-padding-bottom: 46px;
+padding-bottom: 20px;
 `
 
 const StyledDiv2 = styled(StyledDiv)`
