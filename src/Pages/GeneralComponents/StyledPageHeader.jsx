@@ -3,8 +3,8 @@ import StyledHeader from "./StyledHeader"
 
 
 const StyledHeaderContainer = styled.div`
-  margin-top: 3.125rem;
-  margin-bottom: 2.125rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   display: grid;
   grid-template-columns: auto 1fr auto; 
   align-items: center; 

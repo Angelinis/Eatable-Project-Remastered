@@ -6,7 +6,7 @@
 
 The project is based on React with the concepts of fetching, components, libraries, etc.
 
-![homepage](https://raw.githubusercontent.com/Angelinis/eatable-project/main/public/Captura2.JPG)
+![homepage](https://raw.githubusercontent.com/Angelinis/eatable-project/main/public/Captura6.JPG)
 
 ![details1](https://raw.githubusercontent.com/Angelinis/eatable-project/main/public/Captura1.JPG)
 

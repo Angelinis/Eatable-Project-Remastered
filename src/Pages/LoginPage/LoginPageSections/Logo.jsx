@@ -5,7 +5,7 @@ const StyledImage = styled.img`
 margin-bottom:10px;
 margin-left: auto;
 margin-right: auto;
-padding-top: 140px;
+padding-top: 100px;
 `
 
 export const Logo = () => {

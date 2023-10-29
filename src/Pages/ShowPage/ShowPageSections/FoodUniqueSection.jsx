@@ -13,8 +13,8 @@ const FoodImage = styled.img`
   height: 241px;
   border-radius: 50%;
   box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.2);
-  margin-bottom: 50px;
-  margin-top: 50px;
+  margin-bottom: 20px;
+  margin-top: 20px;
   margin-right: auto;
   margin-left: auto;
 `
@@ -24,7 +24,7 @@ const FoodPrice = styled.p`
   font-size: 1.75rem;
   line-height: 2.19rem;
   text-align: center;
-  margin-bottom: 27px;
+  margin-bottom: 20px;
 `
 const FoodDescriptionTitle = styled.h2`
   font-weight: 600;
